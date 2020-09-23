@@ -134,4 +134,47 @@ sanakirja.lataa();
 sanakirja.tallenna();
 Eli käytön aluksi ladataan sanakirja tiedostosta ja lopussa tallennetaan se takaisin tiedostoon jotta sanakirjaan tehdyt muutokset pysyvät voimassa seuraavallekin käynnistyskerralle.
 
+*************
+Osaan 3 asti toimii, Osassa 4 pitäisi soveltaa asiaa joka opetettiin juuri ennen tehtävää -> en ymmärrä mitä olen tekemässä.
+Virheviestejä:
+Rivejä tulostuu kolmen sijaan yksi, lisäksi: 
+Koodilla
+MuistavaSanakirja s = new MuistavaSanakirja("test-69210.txt");
+s.lisaa("tietokone", "computer");
+s.tallenna();
+tallennettiin tiedostoon
+--
+{tietokone=computer}
+--
+sisältö ei ollut oikea
+
+Kun testasin koodia:
+package sanakirja;
+
+public class Main {
+    public static void main(String[] args) {
+MuistavaSanakirja sanakirja = new MuistavaSanakirja("sanat.txt");
+boolean onnistui = sanakirja.lataa();
+
+if (onnistui) {
+    System.out.println("sanakirjan lataaminen onnistui");
+}
+
+System.out.println(sanakirja.kaanna("apina"));
+System.out.println(sanakirja.kaanna("ohjelmointi"));
+System.out.println(sanakirja.kaanna("alla oleva"));    
+    
+sanakirja.lataa();
+
+// käytä sanakirjaa
+
+sanakirja.tallenna();
+    System.out.println(sanakirja.kaanna("apina"));
+System.out.println(sanakirja.kaanna("ohjelmointi"));
+System.out.println(sanakirja.kaanna("alla oleva"));   
+    }
+}
+
+Tulosti pelkästään null , eli kriittisesti teen jotain väärin kun en ymmärrä mitä edes teen :D
+
 
